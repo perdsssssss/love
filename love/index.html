@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Letter for You ❤️</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <!-- Floating Hearts Background -->
+        <div class="hearts-bg">
+            <div class="heart heart-1"></div>
+            <div class="heart heart-2"></div>
+            <div class="heart heart-3"></div>
+            <div class="heart heart-4"></div>
+            <div class="heart heart-5"></div>
+            <div class="heart heart-6"></div>
+        </div>
+
+        <!-- Stage 1: Envelope -->
+        <div id="envelope-stage" class="stage active">
+            <div class="envelope-container">
+                <div class="envelope" id="envelope">
+                    <div class="envelope-back"></div>
+                    <div class="envelope-front"></div>
+                    <div class="envelope-flap" id="envelope-flap"></div>
+                    <div class="envelope-seal">
+                        <div class="wax-seal">♡⁠</div>
+                    </div>
+                </div>
+                <div class="envelope-text">
+                    <h1>You are one of the greatest thing in my life, my love!</h1>
+                    <p>I have a lot to tell you...</p>
+                    <div class="sparkles">
+                        <span class="sparkle"></span>
+                        <span class="sparkle"></span>
+                        <span class="sparkle"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stage 2: Letter -->
+        <div id="letter-stage" class="stage">
+            <div class="letter-container">
+                <div class="letter" id="letter">
+                    <div class="letter-header">
+                        <div class="date">06-25-2025</div>
+                    </div>
+                    <div class="letter-content">
+                        <h2>My Dearest,</h2>
+                        <p>Hi, my love! I just want to tell you how much I appreciate you. Thank you so much for everything, lovie. Lahat ng ginagawa at pinaparamdam mo, it means so much.</p>
+                        
+                        <p>I am blessed and always thankful that I have you in my life. Andito lang ako palagi para sa'yo. I'll always be by your side and will never leave as long as you want me here. </p>
+                        
+                        <p>You are the greatest gift that I have ever receive in this life. Sana alam mo kung gaano mo ka-deserve ang lahat ng magagandang bagay sa mundo. </p>
+                        
+                        <p>Let's grind and work hard it this life. Let's conquer every challenges and hardships. My love, You have me in this lifetime and we will make all our dreams come true. mwuah bb! with all our love ng mga babies natin!</p>
+                        
+                        <div class="letter-closing">
+                            <p>Happiest with you,</p>
+                            <div class="signature">Vhina ♡‧₊˚</div>
+                        </div>
+                    </div>
+                </div>
+                <button id="continue-btn" class="continue-btn">Next ⋆˙⟡</button>
+            </div>
+        </div>
+
+        <!-- Stage 3: Photo of Us -->
+        <div id="photo-stage" class="stage">
+            <div class="photo-container">
+                <div class="photo-frame" id="photo-frame">
+                    <img src="images/us.jpg" alt="Us together" class="couple-photo" id="couple-photo">
+                    <div class="photo-overlay">
+                        <div class="polaroid-text"></div>
+                    </div>
+                </div>
+                <div class="final-message">
+                    <h2>I appreciate you so much, my lovie, pejay ౨ৎ</h2>
+                    <p>Every moment with you is a treasure I hold close to my heart.</p>
+                    <div class="love-stats">
+                        <div class="stat">
+                            <span class="number" data-target="∞">0</span>
+                            <span class="label">Happy days with you</span>
+                        </div>
+                        <div class="stat">
+                            <span class="number" data-target="527">0</span>
+                            <span class="label">Days together</span>
+                        </div>
+                        <div class="stat">
+                            <span class="number" data-target="∞">0</span>
+                            <span class="label">Days that we have together</span>
+                        </div>
+                    </div>
+                    <button id="restart-btn" class="restart-btn">Read Again ♡ྀི</button>
+                </div>
+            </div>
+        </div>
+
+       
+        <!-- Background Music -->
+        <audio id="background-music" loop preload="auto">
+            <source src="audio/your-universe.mp3" type="audio/mpeg">
+        </audio>
+        
+        <!-- Music Control Button -->
+        <div class="music-control">
+            <button id="music-toggle" class="music-btn">
+                <span id="music-icon">▶︎ •၊၊||၊|။|||| | </span>
+                <span id="music-text">Play Music</span>
+            </button>
+        </div>
+
+        <audio id="page-turn" preload="auto">
+            <source src="data:audio/wav;base64,UklGRvQDAABXQVZFZm10IAAAAAABAAABAE4sAABcWAAABAAAAAEAEABkYXRh0AMAAJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJيYmJiYmJiYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJiYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJيYmJي=" type="audio/wav">
+        </audio>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

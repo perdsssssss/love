@@ -1,0 +1,661 @@
+/* styles.css - Vintage Theme */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', Georgia, serif;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(160, 82, 45, 0.1) 0%, transparent 50%),
+        linear-gradient(135deg, #f5f5dc 0%, #faf0e6 30%, #f0e68c 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Music Control Styles */
+.music-control {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.music-btn {
+    background: linear-gradient(135deg, #f5deb3 0%, #deb887 100%);
+    border: 2px solid #8b4513;
+    padding: 10px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Times New Roman', Georgia, serif;
+    font-size: 14px;
+    color: #654321;
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.2);
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.music-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.3);
+    background: linear-gradient(135deg, #deb887 0%, #d2b48c 100%);
+}
+
+/* Photo Styles for Stage 3 */
+.photo-container {
+    text-align: center;
+    max-width: 800px;
+    width: 90%;
+}
+
+.photo-frame {
+    position: relative;
+    margin: 0 auto 3rem;
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, #faf0e6 0%, #f5deb3 100%);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 
+        0 20px 40px rgba(139, 69, 19, 0.3),
+        inset 0 0 20px rgba(218, 165, 32, 0.1);
+    border: 3px solid #8b4513;
+    transform: rotate(-2deg);
+    transition: transform 0.4s ease;
+}
+
+.photo-frame:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+.couple-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: inset 0 0 10px rgba(139, 69, 19, 0.2);
+}
+
+.photo-overlay {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(245, 222, 179, 0.9);
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: 1px solid #8b4513;
+}
+
+.polaroid-text {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 1.2rem;
+    color: #654321;
+    text-shadow: 1px 1px 2px rgba(139, 69, 19, 0.2);
+}
+
+/* Vintage Ornaments Background */
+.hearts-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.heart {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.3;
+    color: #8b4513;
+    text-shadow: 2px 2px 4px rgba(139, 69, 19, 0.3);
+    animation: float 8s ease-in-out infinite;
+}
+
+.heart:before {
+    content: "❦";
+}
+
+.heart-1 {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.heart-2 {
+    top: 20%;
+    right: 15%;
+    animation-delay: 1s;
+}
+
+.heart-3 {
+    top: 60%;
+    left: 5%;
+    animation-delay: 2s;
+}
+
+.heart-4 {
+    bottom: 20%;
+    right: 10%;
+    animation-delay: 3s;
+}
+
+.heart-5 {
+    top: 40%;
+    left: 20%;
+    animation-delay: 4s;
+}
+
+.heart-6 {
+    bottom: 40%;
+    right: 15%;
+    animation-delay: 5s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(3deg);
+    }
+}
+
+/* Stage Management */
+.stage {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 10;
+}
+
+.stage.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Vintage Envelope Stage */
+.envelope-container {
+    text-align: center;
+    position: relative;
+}
+
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    margin: 0 auto 3rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 8px 16px rgba(139, 69, 19, 0.2));
+}
+
+.envelope:hover {
+    transform: scale(1.02);
+}
+
+.envelope-back,
+.envelope-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(135deg, #f5deb3 0%, #deb887 100%),
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 2px,
+            rgba(139, 69, 19, 0.05) 2px,
+            rgba(139, 69, 19, 0.05) 4px
+        );
+    border: 3px solid #8b4513;
+    border-radius: 3px;
+    box-shadow: inset 0 0 20px rgba(139, 69, 19, 0.1);
+}
+
+.envelope-flap {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: 60%;
+    background: 
+        linear-gradient(135deg, #daa520 0%, #b8860b 100%),
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 2px,
+            rgba(139, 69, 19, 0.1) 2px,
+            rgba(139, 69, 19, 0.1) 4px
+        );
+    border: 3px solid #8b4513;
+    border-bottom: none;
+    clip-path: polygon(0 0, 100% 0, 50% 70%);
+    transform-origin: 50% 0;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 2;
+    box-shadow: inset 0 0 15px rgba(139, 69, 19, 0.2);
+}
+
+.envelope.opening .envelope-flap {
+    transform: rotateX(180deg);
+}
+
+.envelope-seal {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.wax-seal {
+    width: 50px;
+    height: 50px;
+    background: 
+        radial-gradient(circle at 30% 30%, #cd853f, #8b4513),
+        radial-gradient(circle at 70% 70%, #daa520, #b8860b);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #2f1b14;
+    font-weight: bold;
+    box-shadow: 
+        0 4px 8px rgba(139, 69, 19, 0.4),
+        inset 0 2px 4px rgba(218, 165, 32, 0.3);
+    animation: pulse 3s infinite;
+    border: 2px solid #654321;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 
+            0 4px 8px rgba(139, 69, 19, 0.4),
+            inset 0 2px 4px rgba(218, 165, 32, 0.3);
+    }
+    50% {
+        box-shadow: 
+            0 6px 12px rgba(139, 69, 19, 0.6),
+            inset 0 2px 4px rgba(218, 165, 32, 0.5);
+    }
+    100% {
+        box-shadow: 
+            0 4px 8px rgba(139, 69, 19, 0.4),
+            inset 0 2px 4px rgba(218, 165, 32, 0.3);
+    }
+}
+
+.envelope-text h1 {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 2.5rem;
+    color: #654321;
+    margin-bottom: 1rem;
+    font-weight: normal;
+    text-shadow: 2px 2px 4px rgba(139, 69, 19, 0.3);
+}
+
+.envelope-text p {
+    font-size: 1.2rem;
+    color: #8b4513;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.sparkles {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.sparkle {
+    font-size: 1.5rem;
+    color: #daa520;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+.sparkle:before {
+    content: "✧";
+}
+
+.sparkle:nth-child(2) {
+    animation-delay: 0.7s;
+}
+
+.sparkle:nth-child(3) {
+    animation-delay: 1.4s;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0.4;
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.3) rotate(180deg);
+    }
+}
+
+/* Vintage Letter Stage */
+.letter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    width: 90%;
+}
+
+.letter {
+    background: 
+        linear-gradient(135deg, #faf0e6 0%, #f5deb3 100%),
+        repeating-linear-gradient(
+            transparent,
+            transparent 1.8rem,
+            rgba(139, 69, 19, 0.1) 1.8rem,
+            rgba(139, 69, 19, 0.1) calc(1.8rem + 1px)
+        );
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 
+        0 20px 40px rgba(139, 69, 19, 0.2),
+        inset 0 0 30px rgba(218, 165, 32, 0.1);
+    margin-bottom: 2rem;
+    position: relative;
+    transform: perspective(1000px) rotateX(-8deg);
+    transition: transform 0.4s ease;
+    border: 2px solid #d2b48c;
+}
+
+.letter:hover {
+    transform: perspective(1000px) rotateX(0deg);
+}
+
+.letter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 60px;
+    right: 0;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+        transparent,
+        transparent 1.8rem,
+        rgba(139, 69, 19, 0.2) 1.8rem,
+        rgba(139, 69, 19, 0.2) calc(1.8rem + 1px)
+    );
+    pointer-events: none;
+}
+
+.letter::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(139, 69, 19, 0.03) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(160, 82, 45, 0.03) 0%, transparent 40%);
+    pointer-events: none;
+    border-radius: 6px;
+}
+
+.letter-header {
+    text-align: right;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.date {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 1.3rem;
+    color: #654321;
+}
+
+.letter-content {
+    position: relative;
+    z-index: 1;
+}
+
+.letter-content h2 {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 2rem;
+    color: #654321;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(139, 69, 19, 0.2);
+}
+
+.letter-content p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: #2f1b14;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+    font-family: 'Times New Roman', Georgia, serif;
+}
+
+.letter-closing {
+    margin-top: 2rem;
+    text-align: right;
+    position: relative;
+    z-index: 1;
+}
+
+.letter-closing p {
+    font-style: italic;
+    margin-bottom: 0.5rem;
+    color: #654321;
+}
+
+.signature {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 1.6rem;
+    color: #654321;
+    font-weight: normal;
+    text-shadow: 1px 1px 2px rgba(139, 69, 19, 0.2);
+}
+
+.continue-btn {
+    background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+    color: #2f1b14;
+    border: 2px solid #8b4513;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 8px 20px rgba(139, 69, 19, 0.3),
+        inset 0 2px 4px rgba(218, 165, 32, 0.3);
+    text-shadow: 1px 1px 2px rgba(139, 69, 19, 0.2);
+}
+
+.continue-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 12px 25px rgba(139, 69, 19, 0.4),
+        inset 0 2px 4px rgba(218, 165, 32, 0.4);
+}
+
+.final-message h2 {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 2.5rem;
+    color: #654321;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(139, 69, 19, 0.3);
+}
+
+.final-message p {
+    font-size: 1.2rem;
+    color: #8b4513;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.love-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.stat {
+    text-align: center;
+    background: 
+        linear-gradient(135deg, #faf0e6 0%, #f5deb3 100%),
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 3px,
+            rgba(139, 69, 19, 0.05) 3px,
+            rgba(139, 69, 19, 0.05) 6px
+        );
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 
+        0 10px 20px rgba(139, 69, 19, 0.2),
+        inset 0 0 15px rgba(218, 165, 32, 0.1);
+    min-width: 150px;
+    border: 2px solid #d2b48c;
+}
+
+.number {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #8b4513;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(139, 69, 19, 0.2);
+}
+
+.label {
+    font-size: 0.9rem;
+    color: #654321;
+    font-style: italic;
+}
+
+.restart-btn {
+    background: linear-gradient(135deg, #f5deb3 0%, #deb887 100%);
+    color: #654321;
+    border: 2px solid #8b4513;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+    box-shadow: 
+        0 8px 20px rgba(139, 69, 19, 0.2),
+        inset 0 2px 4px rgba(245, 222, 179, 0.3);
+    text-shadow: 1px 1px 2px rgba(139, 69, 19, 0.2);
+}
+
+.restart-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 12px 25px rgba(139, 69, 19, 0.3),
+        inset 0 2px 4px rgba(245, 222, 179, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .envelope {
+        width: 250px;
+        height: 165px;
+    }
+    
+    .envelope-text h1 {
+        font-size: 2rem;
+    }
+    
+    .letter {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+    }
+    
+    .letter-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .letter-content p {
+        font-size: 1rem;
+    }
+    
+    .photo-frame {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .love-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .final-message h2 {
+        font-size: 2rem;
+    }
+    
+    .hearts-bg .heart {
+        font-size: 1.5rem;
+    }
+    
+    .music-control {
+        top: 10px;
+        right: 10px;
+    }
+    
+    .music-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .envelope {
+        width: 200px;
+        height: 133px;
+    }
+    
+    .envelope-text h1 {
+        font-size: 1.5rem;
+    }
+    
+    .letter {
+        padding: 1.5rem 1rem;
+    }
+    
+    .photo-frame {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .final-message h2 {
+        font-size: 1.5rem;
+    }
+}
